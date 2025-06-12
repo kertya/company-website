@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from .models import Service, ServiceCategory
 
-# Create your views here.
+def service_list(request):
+    categories = ServiceCategory.objects.all()
+    return render(request, 'services/list.html', {'categories': categories})
+
+def service_detail(request, pk):
+    service = Service.objects.get(pk=pk)
+    return render(request, 'services/detail.html', {'service': service})
