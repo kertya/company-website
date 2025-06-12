@@ -8,3 +8,7 @@ def service_list(request):
 def service_detail(request, pk):
     service = Service.objects.get(pk=pk)
     return render(request, 'services/detail.html', {'service': service})
+
+
+def home_view(request):
+    return render(request, 'home.html')
